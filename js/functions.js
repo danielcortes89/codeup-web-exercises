@@ -10,8 +10,10 @@
  */
 
 function sayHello(name){
-    return "Hello " + name + "!"
+    return "Hello, " + name + "!"
 }
+
+console.log(sayHello("Daniel"))
 
 /**
  * TODO:
@@ -85,10 +87,10 @@ function calculateTip(percentage, total){
  * then display the dollar amount they should tip
  */
 
-alert("Tip time!")
+
 var qOne = prompt("What Percentage?")
 var qTwo = prompt("What was the total?")
-console.log("tip is: " + calculateTip(qOne, qTwo))
+alert("tip is: " + calculateTip(qOne, qTwo))
 
 /**
  * TODO:
