@@ -19,6 +19,17 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
+function analyzeColor(theColor){
+    if(theColor === 'blue'){
+        return "blue is the color of the sky"
+    } else if(theColor === 'red'){
+        return "Strawberries are red"
+    } else if(theColor === 'cyan'){
+        return "I don't know anything about cyan"
+    } else {
+        return "Gotta pick red, blue or cyan";
+    }
+}
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -33,10 +44,25 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
+console.log(analyzeColor(randomColor))
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+
+var theColor = 'red'
+switch(theColor){
+    case 'red' :
+        alert("Strawberries are red");
+        break;
+    case 'blue' :
+        alert("blue is the color of the sky");
+        break;
+    case 'cyan' :
+        alert("I don't know anything about cyan")
+    break;
+    default:  alert("try again")
+}
 
 /**
  * TODO:
@@ -45,18 +71,27 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * function to show it to the user.
  */
 
+var userColor = prompt("Pick a color from these: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']")
+alert((analyzeColor(userColor)))
+
 /* ########################################################################## */
 
 /**
  * TODO:
  * Suppose there's a promotion in Walmart, each customer is given a randomly
- * generated "lucky number" between 0 and 5. If your lucky number is 0 you have
- * no discount, if your lucky number is 1 you'll get a 10% discount, if it's 2,
- * the discount is 25%, if it's 3, 35%, if it's 4, 50%, and if it's 5 you'll get
- * all for free!.
+ * generated "lucky number" between 0 and 5.
+ * If your lucky number is 0 you have
+ * no discount,
+ * if your lucky number is 1 you'll get a 10% discount,
+ * if it's 2, the discount is 25%,
+ * if it's 3, 35%,
+ * if it's 4, 50%,
+ * and if it's 5 you'll get all for free!.
  *
  * Write a function named `calculateTotal` that accepts a lucky number and total
  * amount, and returns the discounted price.
+ *
+
  *
  * Example:
  * calculateTotal(0, 100) // returns 100
@@ -67,6 +102,33 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
+function calculateTotal(lucky, price){
+    switch(lucky){
+        case 0 :
+            return price;
+            break;
+        case 1 :
+            return price - price * .1;
+            break;
+        case 2 :
+            return price - price * .25;
+            break;
+        case 3 :
+            return price - price * .35;
+            break;
+        case 4 :
+            return price - price * .5;
+            break;
+        case 5 :
+            return 0;
+            break;
+        default:
+            return "Pick a correct number"
+    }
+}
+
+console.log(calculateTotal(4, 100))
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -75,7 +137,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
+var userBill = prompt("What is your total bill?")
+alert(calculateTotal(luckyNumber, userBill))
 
 /**
  * TODO:
@@ -93,3 +157,21 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+var playGame = confirm("Would you like to enter a number?")
+if(playGame){
+    var accepted = prompt("Enter a number from 0 - 5")
+
+    if(accepted % 2 === 0){
+        alert('Number is even')
+    } else {
+        alert('Number is odd')
+    }
+
+    alert("Number + 100 is: "  + parseInt(accepted) + 100);
+    if(accepted >= 0){
+        alert("Number is positive");
+    } else {
+        alert("Number is negative")
+    }
+
+}
