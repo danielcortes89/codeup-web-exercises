@@ -51,19 +51,21 @@ console.log(analyzeColor(randomColor))
  */
 
 var theColor = 'red'
-switch(theColor){
-    case 'red' :
-        alert("Strawberries are red");
-        break;
-    case 'blue' :
-        alert("blue is the color of the sky");
-        break;
-    case 'cyan' :
-        alert("I don't know anything about cyan")
-    break;
-    default:  alert("try again")
+function analyzeColor2() {
+    switch (theColor) {
+        case 'red' :
+            return "Strawberries are red";
+            break;
+        case 'blue' :
+            return "blue is the color of the sky";
+            break;
+        case 'cyan' :
+            return "I don't know anything about cyan";
+            break;
+        default:
+            return "try again";
+    }
 }
-
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
@@ -72,7 +74,7 @@ switch(theColor){
  */
 
 var userColor = prompt("Pick a color from these: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']")
-alert((analyzeColor(userColor)))
+alert((analyzeColor2(userColor)))
 
 /* ########################################################################## */
 
