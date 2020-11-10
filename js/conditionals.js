@@ -158,6 +158,7 @@ alert(calculateTotal(luckyNumber, userBill))
  * HINT: The way we prompt for a value could be improved
  */
 var playGame = confirm("Would you like to enter a number?")
+
 if(playGame){
     var accepted = prompt("Enter a number from 0 - 5")
 
@@ -167,7 +168,8 @@ if(playGame){
         alert('Number is odd')
     }
 
-    alert("Number + 100 is: "  + parseInt(accepted) + 100);
+    var newt = parseInt(accepted)
+    alert("Number + 100 is: "  + (newt + 100));
     if(accepted >= 0){
         alert("Number is positive");
     } else {
