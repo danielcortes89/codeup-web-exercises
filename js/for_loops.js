@@ -1,0 +1,3 @@
+function showMultiplication(num){
+
+}
