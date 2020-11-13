@@ -8,7 +8,7 @@ console.log(allCones)
 do{
     let rando = Math.floor(Math.random() * 5) + 1;
     if(allCones - rando > 0){
-        console.log(rando + " cones sold....")
+        console.log(rando + " cone(s) sold....")
         allCones = allCones - rando;
         console.log(allCones)
     } else if (rando > allCones) {
