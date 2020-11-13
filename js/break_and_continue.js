@@ -6,27 +6,39 @@
 
 function launch(){
 
-    var userNum = prompt("Enter a number between 1 and 50");
 
-    var cleaned = parseInt(userNum)
+    var count = 1
 
-    while(cleaned < 0 || cleaned > 50){
-        userNum =  prompt("Try again")
-        cleaned = parseInt(userNum)
-    }
-    console.log("Number to skip is: " + cleaned)
-    for (i = 1 ; i < 50; i++){
+    // while(){
+    //     userNum =  prompt("Try again")
+    //     cleaned = parseInt(userNum)
+    // }
+    // console.log("Number to skip is: " + cleaned)
+    do {
+        var userNum = prompt("Enter a number between 1 and 50");
+        var cleaned = parseInt(userNum)
+        console.log("Number to skip is: " + cleaned)
 
-        if( i == userNum){
-            console.log(("Yikes! Skipping number: " + userNum))
+        for (i = 1; i < 50; i++) {
+            if (cleaned < 0 || cleaned > 50) {
+                break;
+            }
+            count++
 
-        } else if(i % 2 !== 0){
-            console.log("Here is an odd Number: " + i)
+            if (i == userNum) {
+                console.log(("Yikes! Skipping number: " + userNum))
+
+            } else if (i % 2 !== 0) {
+                console.log("Here is an odd Number: " + i)
+            }
+            continue;
+
         }
-    }
+    } while(count < 50)
+
 }
 
-// launch()
+launch()
 
 // for (i = 1 ; i < 50; i++){
 //
