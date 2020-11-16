@@ -1,16 +1,12 @@
-function showMultiplication(num){
+function showMultiplicationTable(num){
     for(i = 1; i < 11; i++){
         console.log(num + " x " + i + " = " + (num * i))
     }
 }
 
-// showMultiplication(7
-
 function tenRandom(){
-
-
     for( i = 1; i < 11; i++){
-        var randomNum = Math.floor(Math.random() * 100) + 1
+        var randomNum = Math.floor(Math.random() * 180) + 1
         if (randomNum % 2 === 0){
             console.log(randomNum + " is even")
         } else {
@@ -38,7 +34,7 @@ function fiveCountdown(){
     }
 }
 
-// showMultiplication(7)
+// showMultiplicationTable(7)
 // tenRandom()
 // pyramid()
 // fiveCountdown()

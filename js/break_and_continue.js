@@ -5,15 +5,8 @@
 // console.log("Number to skip is: " + cleaned)
 
 function launch(){
-
-
     var count = 1
 
-    // while(){
-    //     userNum =  prompt("Try again")
-    //     cleaned = parseInt(userNum)
-    // }
-    // console.log("Number to skip is: " + cleaned)
     do {
         var userNum = prompt("Enter a number between 1 and 50");
         var cleaned = parseInt(userNum)
