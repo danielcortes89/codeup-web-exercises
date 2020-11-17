@@ -146,9 +146,8 @@
      *      ...
      */
     books.map((book, index) => {
-        console.log(`Book #${++index}`)
-        console.log(`Title: ${book.title}`)
-        console.log(`Author: ${book.author.firstName} ${book.author.lastName}`)
+
+        showBookInfo(book, index)
     })
 
     /**
@@ -156,12 +155,38 @@
      * - Create a function named `createBook` that accepts a title and author
      *   name and returns a book object with the properties described
      *   previously. Refactor your code that creates the books array to instead
-     *   use your function.
+     *   use your function
+     *
+     */
+
+    function createBook(newTitle, newAuthor){
+        let stage = newAuthor.split(" ")
+        let newFirst = stage[0];
+        let newLast = stage[1]
+        return {
+            title: newTitle,
+            author: {
+                firstName: newFirst,
+                lastName: newLast
+            }
+        }
+
+    }
+
+    // books.push(createBook('Test', 'Arthur John'))
+    // console.log(books)
+
+    /**
      * - Create a function named `showBookInfo` that accepts a book object and
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
 
+    function showBookInfo(book, index){
+        console.log(`Book #${++index}`)
+        console.log(`Title: ${book.title}`)
+        console.log(`Author: ${book.author.firstName} ${book.author.lastName}`)
+    }
 
 
 })();
