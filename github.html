@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        nav {
+            background: #313131;
+            color: #979a9c;
+            /*margin-top;*/
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        nav span {
+
+            margin: auto 10px;
+        }
+
+        header {
+            padding: 20px;
+        }
+
+        img {
+            width: 75px;
+            height: 75px;
+        }
+
+        .circle {
+            background: lightgray;
+            border-radius: 50%;
+            padding: 3px;
+        }
+
+        .tabs {
+            display: flex;
+            flex-direction: row;
+            margin: 10px 10px;
+        }
+
+        #firstHead {
+            display: flex;
+            flex-direction: row;
+        }
+        .tabs div {
+            padding: 10px 20px;
+        }
+
+        .devTeam {
+            background: #eff0f0;
+            padding: 20px 40px;
+        }
+        section {
+            margin: 15px;
+
+        }
+
+        section > div {
+            border: 1px solid darkgrey;
+        }
+
+        hr {
+            margin-top: 40px;
+
+        }
+
+        #devBlock > div {
+            border-top: 1px solid darkgrey;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .devUnit {
+            padding: 10px 40px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            /*align-items: center;*/
+        }
+
+        .devCell {
+            display: flex;
+            flex-direction: row;
+            color: #979a9c;
+
+        }
+
+        .devCell a {
+            text-decoration: none;
+        }
+
+        .devCell p {
+            margin: 0 5px;
+        }
+
+        .devCell img {
+            margin-right: 20px;
+        }
+
+        .center {
+            margin: auto;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        footer a {
+            text-decoration: none;
+        }
+
+        footer div span {
+            color: #979a9c;
+        }
+
+        #codeup {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <i class="fab fa-3x fa-github"></i>
+        <span>Pull Requests</span>
+        <span>Issues</span>
+        <span>Marketplace</span>
+        <span>Explore</span>
+    </nav>
+
+    <header>
+        <div id="firstHead">
+            <img src="images/codeup.png" alt="" id="codeup">
+            <h2>Codeup</h2>
+        </div>
+        <div class="tabs">
+            <div>
+                <span>Repositories</span>
+                <span class="circle">39</span>
+            </div>
+            <div>
+                <span>People</span>
+                <span class="circle">15</span>
+            </div>
+            <div>
+                <span>Teams</span>
+                <span class="circle">7</span>
+            </div>
+            <div>
+                <span>Projects</span>
+                <span class="circle">0</span>
+            </div>
+            <div>Settings</div>
+        </div>
+    </header>
+
+    <section>
+        <div id="devBlock">
+            <div class="devTeam">
+                <p> <strong>Codeup's dev team</strong> </p>
+            </div>
+            <div class="devUnit">
+                <div class="devCell">
+                    <img src="images/code1.png" alt="">
+                    <div class="center">
+                        <a href="#">Kent Beck</a>
+                        <p>KentBeck</p>
+                    </div>
+                </div>
+                <div class="devCell">
+                    <p>Member</p>
+                    <p>1 team</p>
+                </div>
+            </div>
+            <div class="devUnit">
+                <div class="devCell">
+                    <img src="images/codeup.png" alt="">
+                    <div class="center">
+                        <a href="#">Codeup Instruction Staff</a>
+                        <p>CodeupInstructors</p>
+                    </div>
+                </div>
+                <div class="devCell">
+                    <p>Member</p>
+                    <p>1 team</p>
+                </div>
+            </div>
+            <div class="devUnit">
+                <div class="devCell">
+                    <img src="images/code2.png" alt="">
+                    <div class="center">
+                        <a href="#">Martin Fowler</a>
+                    </div>
+                </div>
+                <div class="devCell">
+                    <p>Member</p>
+                    <p>0 teams</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <footer>
+        <div id="footerLeft">
+            <span>&#169 2018 Github Inc. </span>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Security</a>
+            <a href="#">Status</a>
+            <a href="#">Help</a>
+        </div>
+        <div id="footerRight">
+            <a href="#">Contact Github</a>
+            <a href="#">API</a>
+            <a href="#">Training</a>
+            <a href="#">Shop</a>
+            <a href="#">Blog</a>
+            <a href="#">About</a>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/10517977d2.js" crossorigin="anonymous"></script>
+</body>
+</html>
