@@ -17,8 +17,37 @@
 
         <fieldset>
             <legend>Other stuff</legend>
+            <label for="bio">Tell us about you.</label>
+            <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
 
+            <hr>
+
+            <p for="hear">How did you hear about us?</p>
+            <label for="bill">Billboard advertisement</label>
+            <input type="radio" name="hear" id="bill" value="billboard">
+
+            <br>
+
+            <label for="internet">Internet advertisement</label>
+            <input type="radio" name="hear" id="internet" value="internet">
+
+            <br>
+
+            <label for="other">Other</label>
+            <input type="radio" name="hear" id="other" value="other">
+
+            <br>
+            <br>
+
+            <label for="browser">What browser are you using</label>
+            <select name="browser" id="browser">
+                <option value="chrome">Chrome</option>
+                <option value="firefox">Firefox</option>
+                <option value="internet">Internet explorer</option>
+            </select>
         </fieldset>
+
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
