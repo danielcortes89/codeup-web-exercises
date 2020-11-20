@@ -18,6 +18,7 @@ ul li {
 
 #us {
     background: url('../images/nebula.jpeg');
+    background-size: contain;
     color: white;
 }
 
@@ -34,4 +35,12 @@ table, td, tr {
     padding: 3px;
     border: 1px solid black;
     font-family: Ayuthaya;
+}
+
+a:visited {
+    color: green;
+}
+
+a:hover {
+    color: orange;
 }

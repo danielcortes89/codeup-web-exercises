@@ -1,0 +1,16 @@
+body {
+    background: aquamarine;
+}
+
+#outer-box {
+    background: #3e8e41;
+    height: 166px;
+    padding: 15px;
+}
+
+#inner-box {
+    height: 100%;
+    padding: 25px;
+    margin: 15px;
+    background: indianred;
+}
