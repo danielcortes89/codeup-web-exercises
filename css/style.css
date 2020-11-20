@@ -1,8 +1,37 @@
-.fancy-header {
+h1, h2, h3, h4, h5, h6 {
     color: purple;
+    text-decoration: underline;
+}
+
+* {
+    font-family: "Apple Braille";
+}
+
+body {
+    /*background: #979a9c;*/
+    margin: 0;
+}
+
+ul li {
+    list-style: circle;
+}
+
+#us {
+    background: url('../images/nebula.jpeg');
+    color: white;
+}
+
+body > h1 {
+    text-align: center;
 }
 
 img {
     width: 300px;
     height: 300px;
+}
+
+table, td, tr {
+    padding: 3px;
+    border: 1px solid black;
+    font-family: Ayuthaya;
 }
