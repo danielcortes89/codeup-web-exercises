@@ -78,9 +78,60 @@ a {
 
 .profile-image {
     position: absolute;
-    top: 350px;
+    top: 315px;
+    z-index: 1000;
 }
 
 .profile-form {
     line-height: 80px;
+}
+
+.profile-details {
+    float: left;
+    margin: 0 0.5rem;
+    width: calc(25% - 1rem);
+}
+
+.timeline {
+    float: left;
+    margin: 0 0.5rem;
+    width: calc(50% - 1rem);
+}
+
+.who-to-follow {
+    float: right;
+    margin: 0 0.5rem;
+    width: calc(25% - 1rem);
+}
+
+.container {
+    padding-top: 2em;
+}
+
+.media {
+    background: var(--light-bg);
+    width: 100%;
+    border-bottom: var(--separator-color);
+    padding: 0.5rem;
+    overflow: auto;
+}
+
+.media-image {
+    max-width: 50px;
+    float: left;
+    margin-top: 1.33rem;
+}
+
+.media-body {
+    float: left;
+    width: calc(100% - 50px);
+}
+
+.profile-items {
+    padding: 0;
+    list-style: none;
+}
+
+.profile-entry {
+    margin: 0.5rem;
 }
