@@ -29,16 +29,18 @@
         <h2>Build your own pizza!</h2>
         <ul class="nav nav-tabs" id="nav-tab" role=tablist">
             <li class="nav-item">
-                <a href="#nav-crust" class="nav-link nav-item active" id="nav-crust-tab" data-toggle="tab" role="tab" ><span class="badge badge-secondary">1</span> Size and crust</a>
+                <a href="#nav-crust" class="nav-link nav-item active" id="nav-crust-tab" data-toggle="tab" role="tab" aria-controls="nav-crust" aria-selected="true"><span class="badge badge-secondary">1</span> Size and crust</a>
             </li>
             <li class="nav-item">
-                <a href="#nav-cheese" class="nav-link nav-item" id="nav-cheese-tab" data-toggle="tab" role="tab"><span class="badge badge-secondary">2</span> Cheese and sauce</a>
+                <a href="#nav-cheese" class="nav-link nav-item" id="nav-cheese-tab" data-toggle="tab" role="tab"><span class="badge badge-secondary" aria-controls="nav-cheese" aria-selected="true">2</span> Cheese and sauce</a>
             </li>
             <li class="nav-item">
-                <a href="#nav-top" class="nav-link nav-item" id="nav-top-tab" data-toggle="tab" role="tab"><span class="badge badge-secondary">3</span> Toppings</a>
+                <a href="#nav-top" class="nav-link nav-item" id="nav-top-tab" data-toggle="tab" role="tab"><span class="badge badge-secondary" aria-controls="nav-top" aria-selected="true">3</span> Toppings</a>
             </li>
         </ul>
 
+<!--        DIV FOR THE TAB STUFF-->
+    <div class="tab-content" id="nav-tabContent">
 <!--        FIRST SIZE AND CRUST-->
 
         <div class="card">
@@ -196,6 +198,9 @@
 
         </div>
 
+<!--        CLOSING DIV FOR THE DATA-->
+
+    </div>
 <!--        CLOSING DIV-->
     </div>
 
