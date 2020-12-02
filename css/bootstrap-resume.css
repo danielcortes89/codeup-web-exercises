@@ -4,7 +4,7 @@
 }
 
 .top hr {
-    color: green;
+    border: 2px solid green;
     width: 100%;
 }
 
@@ -25,7 +25,7 @@
 /*LEFT AND RIGHT*/
 
 
-.left {
+.left, .right {
     padding: 10px
 }
 .left div h3, .right div h3 {
