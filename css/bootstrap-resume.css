@@ -1,0 +1,30 @@
+.top {
+    text-align: center;
+    padding: 20px;
+}
+
+.top hr {
+    color: green;
+    width: 100%;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+/*LEFT AND RIGHT*/
+
+
+.left {
+    padding: 10px
+}
+.left div h3, .right div h3 {
+    color: blue;
+}
+
+body {
+    border-left: 2px solid black;
+    margin: 10px;
+}
