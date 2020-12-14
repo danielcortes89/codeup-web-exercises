@@ -26,27 +26,43 @@ var map = new mapboxgl.Map({
 //     .setZoom(12)
 //     .addTo(map);
 
-var marker = new mapboxgl.Marker()
-    .setLngLat([-98.598606, 29.609374])
-    .setPopup(new mapboxgl.Popup()
-        .setText("Latin")
-        .addTo(map))
-    .addTo(map);
+let coords = [[-98.598606, 29.609374], [-98.60634, 29.620389], [-98.512909, 29.620389]]
+let names = ['Latin', 'Ruth', 'Sake']
 
+let makePoints = (locations, names) => {
+    coords.map((coord, index ) => {
+        new mapboxgl.Marker()
+        .setLngLat(coord)
+            .setPopup(new mapboxgl.Popup()
+                .setText(names[index])
+                .addTo(map))
+            .addTo(map);
+    })
+}
 
-let ruth = new mapboxgl.Marker()
-    .setLngLat([-98.60634, 29.620389])
-    .setPopup(new mapboxgl.Popup()
-        .setText("Ruth")
-        .addTo(map))
-    .addTo(map)
+makePoints(coords, names)
 
-let sake = new mapboxgl.Marker()
-    .setLngLat([-98.512909, 29.620389])
-    .setPopup(new mapboxgl.Popup()
-        .setText("Sake")
-        .addTo(map))
-    .addTo(map)
+// var marker = new mapboxgl.Marker()
+//     .setLngLat([-98.598606, 29.609374])
+//     .setPopup(new mapboxgl.Popup()
+//         .setText("Latin")
+//         .addTo(map))
+//     .addTo(map);
+//
+//
+// let ruth = new mapboxgl.Marker()
+//     .setLngLat([-98.60634, 29.620389])
+//     .setPopup(new mapboxgl.Popup()
+//         .setText("Ruth")
+//         .addTo(map))
+//     .addTo(map)
+//
+// let sake = new mapboxgl.Marker()
+//     .setLngLat([-98.512909, 29.620389])
+//     .setPopup(new mapboxgl.Popup()
+//         .setText("Sake")
+//         .addTo(map))
+//     .addTo(map)
 
 
 
