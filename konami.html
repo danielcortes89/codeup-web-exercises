@@ -2,23 +2,201 @@
 <html>
 <head>
     <title>Konami Code</title>
+    <style>
+        div {
+            margin: 0 auto;
+            /*padding: 0 auto;*/
+            font-size: 300%;
+            display: none;
+            color: orange;
+        }
+
+        h1 {
+            margin: auto;
+        }
+
+        section {
+            top: 200px;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            border-bottom: orangered 30px solid;
+            border-top: yellow 30px solid;
+            border-right: red 30px solid;
+            border-left: orange 30px solid;
+            border-radius: 180px;
+            position: relative;
+            display: none;
+            animation: pulse 4s linear infinite;
+            /*animation-duration: 4s linear infinite;*/
+        }
+
+        article {
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            border-top: orange 150px solid;
+            border-right: yellow 150px solid;
+            border-bottom: red 150px solid;
+            border-left: orangered 150px solid;
+            animation: core 4s linear infinite;
+            border-radius: 150px;
+            /*display: none;*/
+        }
+
+        footer {
+            position: absolute;
+            border-radius: 75px;
+            width: 75px;
+            height: 75px;
+            top: -37.5px;
+            left: -37.5px;
+            background: black;
+        }
+
+        @keyframes core {
+            25% {
+                transform: rotate(-180deg);
+                /*box-shadow: 0px 0px 40px white;*/
+
+                border-bottom: orange 150px solid;
+                border-top: red 150px solid;
+                border-right: orangered 150px solid;
+                border-left: yellow 150px solid;
+            }
+
+            50% {
+                transform: rotate(-360deg);
+                box-shadow: 0px 0px 80px white;
+
+
+
+                border-bottom: yellow 150px solid;
+                border-top: orangered 150px solid;
+                border-right: orange 150px solid;
+                border-left: red 150px solid;
+            }
+
+            75% {
+                transform: rotate(-450deg);
+
+                border-bottom: red 150px solid;
+                border-top: orange 150px solid;
+                border-right: yellow 150px solid;
+                border-left: orangered 150px solid;
+
+            }
+
+            100% {
+                transform: rotate(-540deg);
+
+                border-bottom: orangered 150px solid;
+                border-top: yellow 150px solid;
+                border-right: red 150px solid;
+                border-left: orange 150px solid;
+            }
+        }
+        @keyframes pulse {
+            /*0% {*/
+            /*    */
+            /*}*/
+
+            25% {
+                transform: rotate(90deg);
+                box-shadow: 0px 0px 40px white;
+
+                /*border-bottom: orangered 15px solid;*/
+                /*border-top: yellow 15px solid;*/
+                /*border-right: red 15px solid;*/
+                /*border-left: orange 15px solid;*/
+
+                border-bottom: red 15px solid;
+                border-top: orange 15px solid;
+                border-right: yellow 15px solid;
+                border-left: orangered 15px solid;
+            }
+
+            50% {
+                transform: rotate(180deg);
+                box-shadow: 0px 0px 80px white;
+
+                /*border-bottom: orangered 5px solid;*/
+                /*border-top: yellow 5px solid;*/
+                /*border-right: red 5px solid;*/
+                /*border-left: orange 5px solid;*/
+
+                border-bottom: yellow 5px solid;
+                border-top: orangered 5px solid;
+                border-right: orange 5px solid;
+                border-left: red 5px solid;
+            }
+
+            75% {
+                transform: rotate(270deg);
+
+                /*box-shadow: 0px 0px 40px white;*/
+                /*border-bottom: orangered 15px solid;*/
+                /*border-top: yellow 15px solid;*/
+                /*border-right: red 15px solid;*/
+                /*border-left: orange 15px solid;*/
+
+                border-bottom: orange 15px solid;
+                border-top: red 15px solid;
+                border-right: orangered 15px solid;
+                border-left: yellow 15px solid;
+            }
+
+            100% {
+                transform: rotate(360deg);
+
+                border-bottom: orangered 30px solid;
+                border-top: yellow 30px solid;
+                border-right: red 30px solid;
+                border-left: orange 30px solid;
+            }
+        }
+
+    </style>
 </head>
 <body>
-<h1>Konami Code</h1>
+<h1 id="konami">Konami Code</h1>
+
+    <div>
+        <h1>CHEATERS NEVER WIN!!!!</h1>
+    </div>
+
+<section>
+    <article>
+        <footer></footer>
+    </article>
+</section>
 
 <script src="js/jquery.js"></script>
 <script>
     "use strict";
 
-    $(document).keyup(function(event){
-        console.log(event.keyCode);
-    });
+    // $(document).keyup(function(event){
+    //     console.log(event.keyCode);
+    // });
+
     let codeSequence = ""
+
     $(document).keyup(function(){
        codeSequence = codeSequence.concat(event.keyCode)
         if(codeSequence.includes("3838404037393739666513")){
-            alert("You have added 30 lives!")
+            $('body').css('background-image', 'url("https://www.atomicarchive.com/img/science/effects/mushroom-cloud-1.jpg")')
+            $('body').css('background-size', 'cover')
+            $('div').css('display', 'block')
+            $('section').css('display', 'block')
+            $('#konami').css('display', 'none')
+
+
+            alert("You cheated....")
+
             codeSequence = ""
+
         }
     })
     // if(codeSequence.includes("3838404037393739666513")){
