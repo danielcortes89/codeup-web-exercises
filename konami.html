@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<script src="js/jquery.js"></script>
+<script>
+    "use strict";
+
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+    });
+    let codeSequence = ""
+    $(document).keyup(function(){
+       codeSequence = codeSequence.concat(event.keyCode)
+        if(codeSequence.includes("3838404037393739666513")){
+            alert("You have added 30 lives!")
+            codeSequence = ""
+        }
+    })
+    // if(codeSequence.includes("3838404037393739666513")){
+    //     alert("You have added 30 lives!")
+    // }
+</script>
+</body>
+</html>
