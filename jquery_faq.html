@@ -7,14 +7,21 @@
         .invisible {
             visibility: hidden;
         }
+
+        #letter {
+            border: 2px solid black;
+            margin: 2rem;
+            padding: 2rem;
+        }
     </style>
 </head>
 <body>
 
-    <div>
-        <h1>Would you like to sign p for our newsletter?</h1>
-        <span>X</span>
+    <div id="letter">
+        <h1>Would you like to sign up for our newsletter?</h1>
+        <span id="news">X</span>
     </div>
+    <h2 id="register">Wanna register?</h2>
 <a href="#">DETAILS PLEASE</a>
     <dl>
         <dt>Size</dt>
@@ -41,8 +48,8 @@
 
 <button>LAST</button>
 
-    <h3>Big bend</h3>
-    <ul>
+    <h3 class="h-reveal">Big bend</h3>
+    <ul class="next">
         <li>In Texas</li>
         <li>In US</li>
         <li>On Earth</li>
@@ -51,8 +58,8 @@
 
     <br>
 
-<h3>Yosemite</h3>
-<ul>
+<h3 class="h-reveal">Yosemite</h3>
+<ul class="next">
     <li>In washington?</li>
     <li>In US</li>
     <li>On Earth</li>
@@ -60,8 +67,8 @@
 </ul>
 
     <br>
-<h3>Yellowstone</h3>
-<ul>
+<h3 class="h-reveal">Yellowstone</h3>
+<ul class="next">
     <li>In washington</li>
     <li>In US</li>
     <li>On Earth</li>
@@ -92,6 +99,22 @@
         // target.first().css('color', 'blue')
         $(this).parent().children().first().css('color', 'blue')
     })
+    $('#news').click((e)=>{
+        e.preventDefault()
+        $('#letter').hide()
+    })
+    $('.next').each((index, item) => {
+        $(item).hide()
+    })
+
+    $('h3').click(function(e){
+        e.preventDefault()
+        $(this).next().slideDown()
+    })
+    $('#register').hide()
+
+    $('#register').fadeToggle(8000)
+
 </script>
 </body>
 </html>
