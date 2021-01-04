@@ -34,6 +34,8 @@
         <dd class="invisible"> They are big</dd>
     </dl>
 
+<button>LAST</button>
+
     <h3>Big bend</h3>
     <ul>
         <li>In Texas</li>
@@ -69,6 +71,21 @@
     $('dt').click(function(e){
         e.preventDefault()
         $(this).css('background', 'yellow')
+    })
+    $('button').click(function(e){
+        e.preventDefault()
+        $('ul').last().css
+    })
+    $('h3').click(function(e){
+        e.preventDefault()
+        $(this).next().css('font-weight', 'bold')
+    })
+
+    $('li').click(function(e){
+        e.preventDefault()
+        // let target = $(this).parent()
+        // target.first().css('color', 'blue')
+        $(this).parent().children().first().css('color', 'blue')
     })
 </script>
 </body>
