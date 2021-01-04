@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Jquery FAQ</title>
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
+<a href="#">DETAILS PLEASE</a>
+    <dl>
+        <dt>Size</dt>
+        <dd class="invisible">They are big</dd>
+        <dt>Size</dt>
+        <dd class="invisible">They are big</dd>
+        <dt>Size</dt>
+        <dd class="invisible">They are big</dd>
+        <dt>Size</dt>
+        <dd class="invisible">They are big</dd>
+        <dt>Size</dt>
+        <dd class="invisible">They are big</dd>
+        <dt>Size</dt>
+        <dd class="invisible">They are big</dd>
+        <dt>Size</dt>
+        <dd class="invisible">They are big</dd>
+        <dt>Size</dt>
+        <dd class="invisible">They are big</dd>
+        <dt>Size</dt>
+        <dd class="invisible">They are big</dd>
+        <dt>Size</dt>
+        <dd class="invisible"> They are big</dd>
+    </dl>
     <script src="js/jquery.js"></script>
+<script>
+    $('a').click(function(event){
+        event.preventDefault()
+        $('dd').toggleClass('invisible')
+    })
+</script>
 </body>
 </html>
