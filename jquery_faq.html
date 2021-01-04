@@ -39,6 +39,10 @@
         event.preventDefault()
         $('dd').toggleClass('invisible')
     })
+    $('dt').click(function(e){
+        e.preventDefault()
+        $(this).css('background', 'yellow')
+    })
 </script>
 </body>
 </html>
