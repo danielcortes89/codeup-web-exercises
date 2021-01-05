@@ -13,6 +13,32 @@
             margin: 2rem;
             padding: 2rem;
         }
+
+        section {
+            margin: 0 auto;
+            border: 2px solid black;
+            padding: 20px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #frame-1 {
+            width: 150px;
+            height: 150px;
+            background-image: url('./images/desert.jpeg');
+        }
+
+        #frame-2 {
+            width: 150px;
+            height: 150px;
+            background-image: url('./images/cabin.jpeg');
+        }
+
+        #frame-3 {
+            width: 150px;
+            height: 150px;
+            background-image: url('./images/nebula.jpeg');
+        }
     </style>
 </head>
 <body>
@@ -21,6 +47,25 @@
         <h1>Would you like to sign up for our newsletter?</h1>
         <span id="news">X</span>
     </div>
+
+<section>
+    <div>
+        <div id="frame-1"></div>
+        <button id="button-1">swap</button>
+    </div>
+
+    <div>
+        <div id="frame-2"></div>
+        <button id="button-2">swap</button>
+    </div>
+
+    <div>
+        <div id="frame-3"></div>
+        <button id="button-3">swap</button>
+    </div>
+</section>
+
+
     <h2 id="register">Wanna register?</h2>
 <a href="#">DETAILS PLEASE</a>
     <dl>
@@ -86,7 +131,7 @@
     })
     $('button').click(function(e){
         e.preventDefault()
-        $('ul').last().css
+        $('ul').children().last().css('background', 'yellow')
     })
     $('h3').click(function(e){
         e.preventDefault()
@@ -103,6 +148,14 @@
         e.preventDefault()
         $('#letter').hide()
     })
+
+    $('#button-1').click((e) => {
+        e.preventDefault()
+        console.log('Success')
+        let newValue = document.getElementById('frame-2').style.backgroundImage
+        $('frame-1').css('background-image', newValue)
+    })
+
     $('.next').each((index, item) => {
         $(item).hide()
     })
