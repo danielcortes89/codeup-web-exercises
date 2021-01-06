@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .head {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 400px;
+        }
+        #metrics {
+            width: 100%;
+            display: flex;
+
+            justify-content: space-evenly;
+        }
+
+        .card {
+            width: 19%;
+        }
+    </style>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+    <div class="bg-primary head">
+        <h3>Weather App</h3>
+        <span>Current City: San Antonio</span>
+    </div>
+
+    <div id="metrics" class="row">
+        <div class="card">
+            <p class="card-header">DATE</p>
+            <div class="card-body">
+                <p>TEMP</p>
+                <span>X IMAGE X</span>
+                <hr>
+                <p>DESCRIPTION</p>
+                <p>HUMIDITY</p>
+                <hr>
+                <p>WIND</p>
+                <hr>
+                <p>PRESSURE</p>
+            </div>
+        </div>
+        <div class="card">
+            <p class="card-header">DATE</p>
+            <div class="card-body">
+                <p>TEMP</p>
+                <span>X IMAGE X</span>
+                <hr>
+                <p>DESCRIPTION</p>
+                <p>HUMIDITY</p>
+                <hr>
+                <p>WIND</p>
+                <hr>
+                <p>PRESSURE</p>
+            </div>
+        </div>
+        <div class="card">
+            <p class="card-header">DATE</p>
+            <div class="card-body">
+                <p>TEMP</p>
+                <span>X IMAGE X</span>
+                <hr>
+                <p>DESCRIPTION</p>
+                <p>HUMIDITY</p>
+                <hr>
+                <p>WIND</p>
+                <hr>
+                <p>PRESSURE</p>
+            </div>
+        </div>
+        <div class="card">
+            <p class="card-header">DATE</p>
+            <div class="card-body">
+                <p>TEMP</p>
+                <span>X IMAGE X</span>
+                <hr>
+                <p>DESCRIPTION</p>
+                <p>HUMIDITY</p>
+                <hr>
+                <p>WIND</p>
+                <hr>
+                <p>PRESSURE</p>
+            </div>
+        </div>
+        <div class="card">
+            <p class="card-header">DATE</p>
+            <div class="card-body">
+                <p>TEMP</p>
+                <span>X IMAGE X</span>
+                <hr>
+                <p>DESCRIPTION</p>
+                <p>HUMIDITY</p>
+                <hr>
+                <p>WIND</p>
+                <hr>
+                <p>PRESSURE</p>
+            </div>
+        </div>
+    </div>
+    <div id="map" class="container"></div>
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+    <script src="js/keys.js"></script>
+    <script src="js/mapbox-geocoder-utils.js"></script>
+
+    <script src="js/weather.js"></script>
+
+<script src="https://kit.fontawesome.com/10517977d2.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
