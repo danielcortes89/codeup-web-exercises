@@ -1,10 +1,17 @@
 mapboxgl.accessToken = mapboxToken;
 
-$.get(`http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=${OPEN_WEATHER_APPID}`, {
+// CURRENT
+$.get(`http://api.openweathermap.org/data/2.5/weather`, {
     APPID: OPEN_WEATHER_APPID,
-    q:     "San Antonio, US"
+    q:     "San Antonio, US",
+    units: 'imperial'
 }).done((data) => {
     console.log(data);
+
+    let iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+    let iconImage = `<img src=${iconUrl} width="50" height="50">`
+
+    $('body').append(iconImage)
 })
 
 var map = new mapboxgl.Map({
