@@ -1,4 +1,5 @@
 mapboxgl.accessToken = mapboxToken;
+let searchTerm = "San Antonio, Texas"
 
 // CURRENT
 $.get(`http://api.openweathermap.org/data/2.5/weather`, {
@@ -13,6 +14,31 @@ $.get(`http://api.openweathermap.org/data/2.5/weather`, {
 
     $('body').append(iconImage)
 })
+
+
+// FORECAST
+
+const getFiveDay = () => {
+    // $.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
+    //     appid: OPEN_WEATHER_APPID,
+    //     q:  "San Antonio, Texas",
+    //     cnt: '5'
+    // }).done((data) => {
+    //     console.log('FORECAST 5 DAY')
+    //     console.log(data)
+    // })
+    $.get('http://api.openweathermap.org/data/2.5/forecast', {
+        appid: OPEN_WEATHER_APPID,
+        q:  "San Antonio, Texas"
+    }).done((data) => {
+        console.log('FORECAST 5 DAY')
+        console.log(data)
+        console.log(data.list[0].main.temp)
+    })
+}
+
+getFiveDay()
+
 
 var map = new mapboxgl.Map({
     container: 'map',
