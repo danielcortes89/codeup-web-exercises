@@ -34,7 +34,13 @@ const getFiveDay = (coords) => {
     //     console.log('FORECAST 5 DAY')
     //     console.log(data)
     // })
-    $('#metrics').html()
+    let metrics = $('#metrics')
+
+    // while(metrics.hasChildNodes()){
+    //     metrics.removeChild(metrics.firstChild)
+    //
+    // }
+    metrics.html('')
 
     $.get(`http://api.openweathermap.org/data/2.5/forecast`, {
         // method: 'GET',
@@ -48,7 +54,7 @@ const getFiveDay = (coords) => {
         units: 'imperial'
     }).done((data) => {
         console.log('FORECAST 5 DAY')
-        // console.log(data.list[0].dt_txt)
+        console.log(data)
         for(let i = 0; i < 40; i++){
             if(data.list[i].dt_txt.includes('21:00:00')){
                 makefiveDayDisplay(data.list[i])
@@ -90,7 +96,7 @@ const makefiveDayDisplay = (dayTime) => {
 
     chunk.setAttribute('class', 'card')
 
-    dateDisplay.innerText = date
+    dateDisplay.innerText = date.replace('21:00:00', '')
         // + ' - ' + date.getMonth()
     dateDisplay.setAttribute('class', 'card-header')
 
@@ -155,46 +161,27 @@ const test = () => {
 
 marker.on('dragend', test)
 
-// const makeTemplate = (item) => {
-//     let { date, temperature, description, humidity, wind, pressure} = item
-//
-//     let chunk = document.createElement('div')
-//     chunk.classList.add('card')
-//     chunk.classList.add('my-4')
-//     // chunk.classList.add('p-3')
-//
-//     let titleDisplay = document.createElement('p')
-//     titleDisplay.classList.add('card-header')
-//     titleDisplay.classList.add('bg-secondary')
-//     titleDisplay.classList.add('text-light')
-//     titleDisplay.innerText = title
-//
-//     const body = document.createElement('div')
-//     body.classList.add('card-body')
-//
-//     let dateDisplay = document.createElement('p')
-//     dateDisplay.innerText = date
-//
-//     let contentsDisplay = document.createElement('p')
-//     contentsDisplay.innerText = contents
-//
-//     let categoriesDisplay = document.createElement('p')
-//     categoriesDisplay.innerText = 'Categories: ' + categories.join(', ')
-//
-//     chunk.appendChild(titleDisplay)
-//     body.appendChild(dateDisplay)
-//     body.appendChild(contentsDisplay)
-//     body.appendChild(categoriesDisplay)
-//     chunk.appendChild(body)
-//
-//     target.appendChild(chunk)
-// }
 
+const inputField = document.getElementById('userSearch')
 
+let takeUser = () => {
+    console.log(inputField.value)
+    geocode(inputField.value, mapboxToken).then((result) => {
+        // getFiveDay(result)
+        let lng = result[0]
+        let lat = result[1]
 
-// var marker = new mapboxgl.Marker({
-//     color: "#000000",
-//     draggable: true
-// })
-//     .setLngLat([-98.4916, 29.4260])
-//     .addTo(map)
+        map.flyTo({
+            center: result,
+            zoom: 14,
+            speed: 0.5,
+            curve: 1
+        });
+
+        marker.setLngLat([lng, lat]).addTo(map)
+
+        test()
+    })
+}
+
+$('button').click(takeUser)
