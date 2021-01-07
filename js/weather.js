@@ -29,12 +29,33 @@ const getFiveDay = () => {
     // })
     $.get('http://api.openweathermap.org/data/2.5/forecast', {
         appid: OPEN_WEATHER_APPID,
-        q:  "San Antonio, Texas"
+        q:  "San Antonio, Texas",
+        units: 'imperial'
     }).done((data) => {
         console.log('FORECAST 5 DAY')
         console.log(data)
-        console.log(data.list[0].main.temp)
+        console.log(makefiveDayDisplay(data.list[0]))
     })
+}
+
+const makefiveDayDisplay = (dayTime) => {
+    // EXTRACT DATA
+    let date = dayTime.dt_txt
+    let { main, weather, wind } = dayTime
+    let { humidity, pressure } = main
+    let temperature = main.temp
+    let { icon, description } = weather[0]
+    let { speed } = wind
+
+    return {
+        date,
+        speed,
+        icon,
+        description,
+        temperature,
+        humidity,
+        pressure
+    }
 }
 
 getFiveDay()
