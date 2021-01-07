@@ -1,5 +1,11 @@
 mapboxgl.accessToken = mapboxToken;
-let searchTerm = "San Antonio, Texas"
+// let searchTerm = "San Antonio, Texas"
+let start = {
+    lng: -98.598606,
+    lat: 29.609374
+}
+
+
 
 // CURRENT
 $.get(`http://api.openweathermap.org/data/2.5/weather`, {
@@ -10,6 +16,7 @@ $.get(`http://api.openweathermap.org/data/2.5/weather`, {
     console.log(data);
 
     let iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+
     let iconImage = `<img src=${iconUrl} width="50" height="50">`
 
     $('body').append(iconImage)
@@ -18,7 +25,7 @@ $.get(`http://api.openweathermap.org/data/2.5/weather`, {
 
 // FORECAST
 
-const getFiveDay = () => {
+const getFiveDay = (coords) => {
     // $.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
     //     appid: OPEN_WEATHER_APPID,
     //     q:  "San Antonio, Texas",
@@ -27,20 +34,39 @@ const getFiveDay = () => {
     //     console.log('FORECAST 5 DAY')
     //     console.log(data)
     // })
-    $.get('http://api.openweathermap.org/data/2.5/forecast', {
+    $('#metrics').html()
+
+    $.get(`http://api.openweathermap.org/data/2.5/forecast`, {
+        // method: 'GET',
         appid: OPEN_WEATHER_APPID,
-        q:  "San Antonio, Texas",
+        // q:  "San Antonio, Texas",
+        // lat: 29.609374,
+        // lon: -98.598606,
+        lat: coords.lat,
+        lon: coords.lng,
+        // lon: '',
         units: 'imperial'
     }).done((data) => {
         console.log('FORECAST 5 DAY')
-        console.log(data)
-        console.log(makefiveDayDisplay(data.list[0]))
+        // console.log(data.list[0].dt_txt)
+        for(let i = 0; i < 40; i++){
+            if(data.list[i].dt_txt.includes('21:00:00')){
+                makefiveDayDisplay(data.list[i])
+            }
+        }
+        // console.log(makefiveDayDisplay(data.list[0]))
     })
 }
+
+// `http://api.openweathermap.org/data/2.5/forecast?lat=${-98.598606}&lon${29.609374}`
+// [-98.598606, 29.609374]
+// q:  "San Antonio, Texas",
 
 const makefiveDayDisplay = (dayTime) => {
     // EXTRACT DATA
     let date = dayTime.dt_txt
+    // let date = new Date(da)
+    // console.log(date)
     let { main, weather, wind } = dayTime
     let { humidity, pressure } = main
     let temperature = main.temp
@@ -65,6 +91,7 @@ const makefiveDayDisplay = (dayTime) => {
     chunk.setAttribute('class', 'card')
 
     dateDisplay.innerText = date
+        // + ' - ' + date.getMonth()
     dateDisplay.setAttribute('class', 'card-header')
 
     cardBody.setAttribute('class', 'card-body')
@@ -100,15 +127,33 @@ const makefiveDayDisplay = (dayTime) => {
     }
 }
 
-getFiveDay()
+getFiveDay(start)
 
 
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [-98.598606, 29.609374],
-    zoom: 12
+    zoom: 11
 });
+
+var marker = new mapboxgl.Marker({
+    draggable: true
+})
+    .setLngLat([-98.598606, 29.609374])
+    .addTo(map);
+
+
+const test = () => {
+    let markerCoord = marker.getLngLat()
+
+
+    console.log('move', markerCoord)
+    getFiveDay(markerCoord)
+
+}
+
+marker.on('dragend', test)
 
 // const makeTemplate = (item) => {
 //     let { date, temperature, description, humidity, wind, pressure} = item
