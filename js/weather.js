@@ -15,6 +15,10 @@ $.get(`http://api.openweathermap.org/data/2.5/weather`, {
 }).done((data) => {
     console.log(data);
 
+    document.getElementById('currentCity').innerText = 'Current Location: ' + data.name
+
+    makeCurrentDisplay(data)
+
     let iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
 
     let iconImage = `<img src=${iconUrl} width="50" height="50">`
@@ -57,7 +61,7 @@ const getFiveDay = (coords) => {
         console.log(data)
         for(let i = 0; i < 40; i++){
             if(data.list[i].dt_txt.includes('21:00:00')){
-                makefiveDayDisplay(data.list[i])
+                makefiveDayDisplay(data.list[i], data.city.name)
             }
         }
         // console.log(makefiveDayDisplay(data.list[0]))
@@ -68,7 +72,26 @@ const getFiveDay = (coords) => {
 // [-98.598606, 29.609374]
 // q:  "San Antonio, Texas",
 
-const makefiveDayDisplay = (dayTime) => {
+const makeCurrentDisplay = (data) => {
+    let wind = data.wind.speed
+    let { description, icon } = weather[0]
+    let { sunrise, sunset } = sys
+    let { temp, humidity, feels_like } = main
+
+    // HTML
+    const chunk = document.createElement('div')
+    const windDisplay = document.createElement('p')
+    const cardBody = document.createElement('div')
+    // CARD BODY COMPONENTS
+    const tempDisplay = document.createElement('p')
+    const iconDisplay = document.createElement('img')
+    const descriptionDisplay = document.createElement('p')
+    const humidDisplay = document.createElement('p')
+    const windDisplay = document.createElement('p')
+}
+
+const makefiveDayDisplay = (dayTime, loc) => {
+    document.getElementById('currentCity').innerText = 'Current Location: ' + loc
     // EXTRACT DATA
     let date = dayTime.dt_txt
     // let date = new Date(da)

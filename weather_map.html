@@ -11,6 +11,7 @@
             justify-content: space-between;
             align-items: center;
             color: white;
+            padding: 20px 20px;
         }
         #map {
             /* the width and height may be set to any size */
@@ -35,15 +36,22 @@
 <body>
     <div class="bg-primary head">
         <h3>Weather App</h3>
-        <span>Current City: San Antonio</span>
+        <div>
+            <input type="text" id="userSearch">
+            <button>SEARCH</button>
+        </div>
+        <span id="currentCity"></span>
     </div>
+
+    <section>
+        <h2>Current conditions</h2>
+        <div></div>
+    </section>
 
     <div id="metrics" class="row">
 
     </div>
 
-    <input type="text" id="userSearch">
-    <button>SEARCH</button>
     <div id="map" class="container"></div>
 
 
