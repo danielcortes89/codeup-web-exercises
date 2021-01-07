@@ -53,9 +53,13 @@ const makefiveDayDisplay = (dayTime) => {
     const cardBody = document.createElement('div')
     // CARD BODY COMPONENTS
     const tempDisplay = document.createElement('p')
+    const iconDisplay = document.createElement('img')
     const descriptionDisplay = document.createElement('p')
     const humidDisplay = document.createElement('p')
     const windDisplay = document.createElement('p')
+
+    // let iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+    // let iconImage = `<img src=${iconUrl} width="50" height="50">`
 
 
     chunk.setAttribute('class', 'card')
@@ -66,11 +70,16 @@ const makefiveDayDisplay = (dayTime) => {
     cardBody.setAttribute('class', 'card-body')
 
     tempDisplay.innerText = 'Temperature: ' + temperature + ' F'
-    descriptionDisplay.innerText = description
-    humidDisplay.innerText = humidity
-    windDisplay.innerText = speed
+
+    iconDisplay.setAttribute('src', `http://openweathermap.org/img/wn/${icon}@2x.png`)
+    iconDisplay.setAttribute('width', '50')
+    iconDisplay.setAttribute('height', '50')
+    descriptionDisplay.innerText = 'Conditions: ' + description
+    humidDisplay.innerText = humidity + '% Humidity'
+    windDisplay.innerText = 'Wind: ' + speed + ' MPH'
 
     cardBody.appendChild(tempDisplay)
+    cardBody.appendChild(iconDisplay)
     cardBody.appendChild(descriptionDisplay)
     cardBody.appendChild(humidDisplay)
     cardBody.appendChild(windDisplay)
