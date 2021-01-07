@@ -47,6 +47,20 @@ const makefiveDayDisplay = (dayTime) => {
     let { icon, description } = weather[0]
     let { speed } = wind
 
+    // HTML
+    const chunk = document.createElement('div')
+    const dateDisplay = document.createElement('p')
+    const cardBody = document.createElement('div')
+    // CARD BODY COMPONENTS
+    const tempDisplay = document.createElement('p')
+    const descriptionDisplay = document.createElement('p')
+    const humidDisplay = document.createElement('p')
+    const windDisplay = document.createElement('p')
+
+
+    dateDisplay.innerText = date
+    $('#metrics').append(dateDisplay)
+
     return {
         date,
         speed,
