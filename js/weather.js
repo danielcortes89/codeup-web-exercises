@@ -58,8 +58,27 @@ const makefiveDayDisplay = (dayTime) => {
     const windDisplay = document.createElement('p')
 
 
+    chunk.setAttribute('class', 'card')
+
     dateDisplay.innerText = date
-    $('#metrics').append(dateDisplay)
+    dateDisplay.setAttribute('class', 'card-header')
+
+    cardBody.setAttribute('class', 'card-body')
+
+    tempDisplay.innerText = 'Temperature: ' + temperature + ' F'
+    descriptionDisplay.innerText = description
+    humidDisplay.innerText = humidity
+    windDisplay.innerText = speed
+
+    cardBody.appendChild(tempDisplay)
+    cardBody.appendChild(descriptionDisplay)
+    cardBody.appendChild(humidDisplay)
+    cardBody.appendChild(windDisplay)
+
+    chunk.appendChild(dateDisplay)
+    chunk.appendChild(cardBody)
+
+    $('#metrics').append(chunk)
 
     return {
         date,
