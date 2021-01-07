@@ -96,7 +96,7 @@ const makefiveDayDisplay = (dayTime) => {
 
     cardBody.setAttribute('class', 'card-body')
 
-    tempDisplay.innerText = 'Temperature: ' + temperature + ' F'
+    tempDisplay.innerText = 'Temperature: ' + Math.floor(temperature) + ' F'
 
     iconDisplay.setAttribute('src', `http://openweathermap.org/img/wn/${icon}@2x.png`)
     iconDisplay.setAttribute('width', '50')
