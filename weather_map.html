@@ -11,6 +11,7 @@
 
             --metric: #37718E;
             --cadet: #3F7CAC;
+            --charcoal: #364156;
         }
         .head {
             display: flex;
@@ -20,6 +21,7 @@
             color: white;
             padding: 20px 20px;
             background: var(--cadet);
+            margin: 0px 0px 40px;
         }
         #map {
             /* the width and height may be set to any size */
@@ -33,7 +35,7 @@
 
             justify-content: space-around;
             padding: 20px;
-            margin: 0 auto 80px;
+            margin: 40px auto 80px;
             background: var(--metric);
         }
 
@@ -52,6 +54,10 @@
             text-align: center;
         }
 
+        #currHead {
+            background: var(--charcoal);
+        }
+
         .curr-disp {
             width: 100%;
         }
@@ -59,6 +65,8 @@
         footer {
             background: var(--metric);
             height: 150px;
+            text-align: center;
+            color: white;
         }
 
         /*.innerCon {*/
@@ -151,7 +159,9 @@
 
     <div id="map" class="container"></div>
 
-    <footer></footer>
+    <footer>
+        <h1>This is a footer</h1>
+    </footer>
 
 
 <!--    <script src="https://code.jquery.com/jquery-2.2.4.min.zjs" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->

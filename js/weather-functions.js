@@ -110,7 +110,8 @@ const makeCurrentDisplay = (data) => {
     chunk.setAttribute('class', 'card  curr-disp my-3')
 
     current.innerText = 'Meanwhile... in ' + data.name
-    current.setAttribute('class', 'card-header')
+    current.setAttribute('class', 'card-header text-light')
+    current.setAttribute('id', 'currHead')
 
     // LEFT INNER ITEMS
     tempDisplay.innerText = 'Temperature: ' + temp + 'F'
