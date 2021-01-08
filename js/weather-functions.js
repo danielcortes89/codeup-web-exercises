@@ -169,6 +169,81 @@ const makefiveDayDisplay = (dayTime, loc) => {
     let { icon, description } = weather[0]
     let { speed } = wind
 
+    const makeDateString = (dayTime) => {
+        let work = new Date(dayTime.dt * 1000)
+        let weekday = ''
+        let message = ''
+        switch(work.getDay()){
+            case 0:
+                weekday = 'Sunday, '
+                break;
+            case 1:
+                weekday = 'Monday, '
+                break;
+            case 2:
+                weekday = 'Tuesday, '
+                break;
+            case 3:
+                weekday = 'Wednesday, '
+                break;
+            case 4:
+                weekday = 'Thursday, '
+                break;
+            case 5:
+                weekday = 'Friday, '
+                break;
+            case 6:
+                weekday = 'Saturday, '
+                break;
+        }
+
+        switch(work.getMonth()){
+            case 0:
+                message = 'Jan '
+                break;
+            case 1:
+                message = 'Feb '
+                break;
+            case 2:
+                message = 'Mar '
+                break;
+            case 3:
+                message = 'Apr '
+                break;
+            case 4:
+                message = 'May '
+                break;
+            case 5:
+                message = 'June '
+                break;
+            case 6:
+                message = 'July '
+                break;
+            case 7:
+                message = 'Aug '
+                break;
+            case 8:
+                message = 'Sep '
+                break;
+            case 9:
+                message = 'Oct '
+                break;
+            case 10:
+                message = 'Nov '
+                break;
+            case 11:
+                message = 'Dec '
+                break;
+        }
+
+        let prep = date.replace('21:00:00', '')
+        return weekday + message + prep.replace('2021-01-', '')
+    }
+
+    makeDateString(dayTime)
+    //
+    // date = makeDateString()
+
     // HTML
     const chunk = document.createElement('div')
     const dateDisplay = document.createElement('p')
@@ -186,11 +261,11 @@ const makefiveDayDisplay = (dayTime, loc) => {
 
     chunk.setAttribute('class', 'card five-unit m-2')
 
-    dateDisplay.innerText = date.replace('21:00:00', '')
+    dateDisplay.innerText = makeDateString(dayTime)
     // + ' - ' + date.getMonth()
     dateDisplay.setAttribute('class', 'card-header')
 
-    cardBody.setAttribute('class', 'card-body')
+    cardBody.setAttribute('class', 'card-body back')
 
     tempDisplay.innerText = 'Temperature: ' + Math.floor(temperature) + ' F'
 
