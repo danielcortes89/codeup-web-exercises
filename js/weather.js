@@ -78,12 +78,22 @@ const makeCurrentDisplay = (data) => {
     let { sunrise, sunset } = data.sys
     let { temp, humidity, feels_like } = data.main
 
+console.log(sunrise)
+    sunrise = new Date(sunrise * 1000)
+    sunset = new Date(sunset * 1000)
+
     // HTML
     const chunk = document.createElement('div')
     const current = document.createElement('h4')
-    const windDisplay = document.createElement('p')
     const cardBody = document.createElement('div')
+
     // CARD BODY COMPONENTS
+    const innerContainer = document.createElement('div')
+    const leftInner = document.createElement('div')
+    const rightInner = document.createElement('div')
+    const suns = document.createElement('div')
+
+    const windDisplay = document.createElement('p')
     const descriptionDisplay = document.createElement('p')
     const iconDisplay = document.createElement('img')
     const sunriseDisplay = document.createElement('p')
@@ -97,9 +107,43 @@ const makeCurrentDisplay = (data) => {
     current.innerText = 'Currently'
     current.setAttribute('class', 'card-header')
 
-    windDisplay.innerText = wind
+    // LEFT INNER ITEMS
+    tempDisplay.innerText = 'Temperature: ' + temp + 'F'
 
-    cardBody.appendChild(windDisplay)
+    windDisplay.innerText = 'Wind: ' + wind + 'MPH'
+
+    humidDisplay.innerText = 'Humidity: ' + humidity + '%'
+
+    feelDisplay.innerText = 'Feels Like: ' + feels_like + 'F'
+
+    // RIGHT INNER ITEMS
+    // MAKE RESPONSIVE WITH BETTER IMAGES
+    iconDisplay.setAttribute('src', `http://openweathermap.org/img/wn/${icon}@2x.png`)
+
+    descriptionDisplay.innerText = description
+
+    sunriseDisplay.innerText = `Sunrise:  ${sunrise.getHours()}:${sunrise.getMinutes()}:${sunrise.getSeconds()} AM`
+    sunsetDisplay.innerText = `Sunset:  ${sunset.getHours()}:${sunset.getMinutes()}:${sunset.getSeconds()} PM`
+
+    suns.appendChild(sunriseDisplay)
+    suns.appendChild(sunsetDisplay)
+
+    innerContainer.setAttribute('class', 'row')
+    leftInner.setAttribute('class', 'col-12 col-sm-6')
+    leftInner.appendChild(tempDisplay)
+    leftInner.appendChild(windDisplay)
+    leftInner.appendChild(humidDisplay)
+    leftInner.appendChild(feelDisplay)
+
+    rightInner.setAttribute('class', 'col-12 col-sm-6')
+    rightInner.appendChild(iconDisplay)
+    rightInner.appendChild(descriptionDisplay)
+    rightInner.appendChild(suns)
+
+    innerContainer.appendChild(leftInner)
+    innerContainer.appendChild(rightInner)
+
+    cardBody.appendChild(innerContainer)
 
     chunk.appendChild(current)
     chunk.appendChild(cardBody)
