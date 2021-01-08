@@ -255,7 +255,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [-98.598606, 29.609374],
-    zoom: 9
+    zoom: 8
 });
 
 var marker = new mapboxgl.Marker({

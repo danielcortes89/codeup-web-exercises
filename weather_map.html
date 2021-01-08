@@ -63,6 +63,7 @@
 
         #currHead {
             background: var(--charcoal);
+            text-align: center;
         }
 
         .curr-disp {
@@ -91,6 +92,10 @@
         .rightCurr {
             text-align: center;
             background: var(--light-blue);
+        }
+
+        .form-group {
+            display: flex;
         }
         /*@media screen and (min-width: 768px){*/
         /*    #metrics {*/
@@ -149,8 +154,8 @@
 <body>
     <div class=" head">
         <h3>Weather App</h3>
-        <div>
-            <input type="text" id="userSearch">
+        <div class="form-group">
+            <input type="text" id="userSearch" class="form-control">
             <button>SEARCH</button>
         </div>
 <!--        <span id="currentCity"></span>-->
