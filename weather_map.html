@@ -10,6 +10,7 @@
             --dark-blue: #668cff;
 
             --metric: #37718E;
+            --cadet: #3F7CAC;
         }
         .head {
             display: flex;
@@ -18,11 +19,13 @@
             align-items: center;
             color: white;
             padding: 20px 20px;
+            background: var(--cadet);
         }
         #map {
             /* the width and height may be set to any size */
             width: 100%;
             height: 400px;
+            margin-bottom: 80px;
         }
         #metrics {
             width: 100%;
@@ -46,10 +49,16 @@
         .five-unit {
             width: 250px;
             margin: 10px;
+            text-align: center;
         }
 
         .curr-disp {
             width: 100%;
+        }
+
+        footer {
+            background: var(--metric);
+            height: 150px;
         }
 
         /*.innerCon {*/
@@ -123,13 +132,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
-    <div class="bg-primary head">
+    <div class=" head">
         <h3>Weather App</h3>
         <div>
             <input type="text" id="userSearch">
             <button>SEARCH</button>
         </div>
-        <span id="currentCity"></span>
+<!--        <span id="currentCity"></span>-->
     </div>
 
     <section>
@@ -141,6 +150,8 @@
     </div>
 
     <div id="map" class="container"></div>
+
+    <footer></footer>
 
 
 <!--    <script src="https://code.jquery.com/jquery-2.2.4.min.zjs" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->

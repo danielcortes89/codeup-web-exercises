@@ -18,7 +18,7 @@ const getCurrent = (coords) => {
     }).done((data) => {
         console.log(data);
 
-        document.getElementById('currentCity').innerText = 'Current Location: ' + data.name
+        // document.getElementById('currentCity').innerText = 'Current Location: ' + data.name
 
         makeCurrentDisplay(data)
 
@@ -109,7 +109,7 @@ const makeCurrentDisplay = (data) => {
 
     chunk.setAttribute('class', 'card  curr-disp my-3')
 
-    current.innerText = 'Currently'
+    current.innerText = 'Meanwhile... in ' + data.name
     current.setAttribute('class', 'card-header')
 
     // LEFT INNER ITEMS
@@ -157,7 +157,7 @@ const makeCurrentDisplay = (data) => {
 }
 
 const makefiveDayDisplay = (dayTime, loc) => {
-    document.getElementById('currentCity').innerText = 'Current Location: ' + loc
+    // document.getElementById('currentCity').innerText = 'Current Location: ' + loc
     // EXTRACT DATA
     let date = dayTime.dt_txt
     // let date = new Date(da)
@@ -230,7 +230,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [-98.598606, 29.609374],
-    zoom: 11
+    zoom: 9
 });
 
 var marker = new mapboxgl.Marker({

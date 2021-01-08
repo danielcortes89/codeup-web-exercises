@@ -85,7 +85,7 @@ const makeCurrentDisplay = (data) => {
 
     // HTML
     const chunk = document.createElement('div')
-    const current = document.createElement('h4')
+    const current = document.createElement('span')
     const cardBody = document.createElement('div')
 
     // CARD BODY COMPONENTS
@@ -105,7 +105,7 @@ const makeCurrentDisplay = (data) => {
 
     chunk.setAttribute('class', 'card  curr-disp my-3')
 
-    current.innerText = 'Currently'
+    current.innerText = 'Meanwhile in ' + data.name
     current.setAttribute('class', 'card-header')
 
     // LEFT INNER ITEMS
