@@ -23,7 +23,7 @@ $.get(`http://api.openweathermap.org/data/2.5/weather`, {
 
     let iconImage = `<img src=${iconUrl} width="50" height="50">`
 
-    $('body').append(iconImage)
+    // $('body').append(iconImage)
 })
 
 
@@ -74,20 +74,37 @@ const getFiveDay = (coords) => {
 
 const makeCurrentDisplay = (data) => {
     let wind = data.wind.speed
-    let { description, icon } = weather[0]
-    let { sunrise, sunset } = sys
-    let { temp, humidity, feels_like } = main
+    let { description, icon } = data.weather[0]
+    let { sunrise, sunset } = data.sys
+    let { temp, humidity, feels_like } = data.main
 
     // HTML
     const chunk = document.createElement('div')
+    const current = document.createElement('h4')
     const windDisplay = document.createElement('p')
     const cardBody = document.createElement('div')
     // CARD BODY COMPONENTS
-    const tempDisplay = document.createElement('p')
-    const iconDisplay = document.createElement('img')
     const descriptionDisplay = document.createElement('p')
+    const iconDisplay = document.createElement('img')
+    const sunriseDisplay = document.createElement('p')
+    const sunsetDisplay = document.createElement('p')
+    const tempDisplay = document.createElement('p')
     const humidDisplay = document.createElement('p')
-    const windDisplay = document.createElement('p')
+    const feelDisplay = document.createElement('p')
+
+    chunk.setAttribute('class', 'card  curr-disp')
+
+    current.innerText = 'Currently'
+    current.setAttribute('class', 'card-header')
+
+    windDisplay.innerText = wind
+
+    cardBody.appendChild(windDisplay)
+
+    chunk.appendChild(current)
+    chunk.appendChild(cardBody)
+
+    $('section').html(chunk)
 }
 
 const makefiveDayDisplay = (dayTime, loc) => {
