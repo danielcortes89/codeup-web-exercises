@@ -8,23 +8,28 @@ let start = {
 
 
 // CURRENT
-$.get(`http://api.openweathermap.org/data/2.5/weather`, {
-    APPID: OPEN_WEATHER_APPID,
-    q:     "San Antonio, US",
-    units: 'imperial'
-}).done((data) => {
-    console.log(data);
+const getCurrent = (coords) => {
+    $.get(`http://api.openweathermap.org/data/2.5/weather`, {
+        APPID: OPEN_WEATHER_APPID,
+        // q:     "San Antonio, US",
+        lat: coords.lat,
+        lon: coords.lng,
+        units: 'imperial'
+    }).done((data) => {
+        console.log(data);
 
-    document.getElementById('currentCity').innerText = 'Current Location: ' + data.name
+        document.getElementById('currentCity').innerText = 'Current Location: ' + data.name
 
-    makeCurrentDisplay(data)
+        makeCurrentDisplay(data)
 
-    let iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+        let iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
 
-    let iconImage = `<img src=${iconUrl} width="50" height="50">`
+        let iconImage = `<img src=${iconUrl} width="50" height="50">`
 
-    // $('body').append(iconImage)
-})
+        // $('body').append(iconImage)
+    })
+}
+
 
 
 // FORECAST
@@ -102,7 +107,7 @@ console.log(sunrise)
     const humidDisplay = document.createElement('p')
     const feelDisplay = document.createElement('p')
 
-    chunk.setAttribute('class', 'card  curr-disp')
+    chunk.setAttribute('class', 'card  curr-disp my-3')
 
     current.innerText = 'Currently'
     current.setAttribute('class', 'card-header')
@@ -129,13 +134,13 @@ console.log(sunrise)
     suns.appendChild(sunsetDisplay)
 
     innerContainer.setAttribute('class', 'row')
-    leftInner.setAttribute('class', 'col-12 col-sm-6')
+    leftInner.setAttribute('class', 'col-12 col-sm-6 leftCurr')
     leftInner.appendChild(tempDisplay)
     leftInner.appendChild(windDisplay)
     leftInner.appendChild(humidDisplay)
     leftInner.appendChild(feelDisplay)
 
-    rightInner.setAttribute('class', 'col-12 col-sm-6')
+    rightInner.setAttribute('class', 'col-12 col-sm-6 rightCurr')
     rightInner.appendChild(iconDisplay)
     rightInner.appendChild(descriptionDisplay)
     rightInner.appendChild(suns)
@@ -217,6 +222,7 @@ const makefiveDayDisplay = (dayTime, loc) => {
     }
 }
 
+getCurrent(start)
 getFiveDay(start)
 
 
@@ -239,7 +245,9 @@ const test = () => {
 
 
     console.log('move', markerCoord)
+
     getFiveDay(markerCoord)
+    getCurrent(markerCoord)
 
 }
 

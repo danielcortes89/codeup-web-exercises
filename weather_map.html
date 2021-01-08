@@ -5,6 +5,10 @@
     <title>Title</title>
 
     <style>
+        :root {
+            --light-blue: #33ccff;
+            --dark-blue: #668cff;
+        }
         .head {
             display: flex;
             flex-direction: row;
@@ -44,13 +48,17 @@
         /*    flex-direction: column;*/
         /*}*/
 
-        /*.leftCurr {*/
-        /*    width: 100%;*/
-        /*}*/
+        .leftCurr {
+            text-align: center;
+            background: var(--dark-blue);
+            color: white;
+            padding-top: 20px;
+        }
 
-        /*.rightCurr {*/
-        /*    width: 100%;*/
-        /*}*/
+        .rightCurr {
+            text-align: center;
+            background: var(--light-blue);
+        }
 
         /*@media screen and(min-width: 476px){*/
         /*    .innerCon {*/
