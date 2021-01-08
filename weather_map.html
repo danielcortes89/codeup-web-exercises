@@ -26,7 +26,8 @@
             width: 100%;
             display: flex;
 
-            justify-content: space-evenly;
+            justify-content: space-around;
+            padding: 20px;
             margin: 0 auto;
         }
 
@@ -37,6 +38,10 @@
         section {
             width: 80%;
             margin: 0 auto;
+        }
+
+        .five-unit {
+            width: 250px;
         }
 
         .curr-disp {
@@ -58,6 +63,21 @@
         .rightCurr {
             text-align: center;
             background: var(--light-blue);
+        }
+        @media screen and (min-width: 768px){
+            #metrics {
+
+            }
+        }
+
+        @media screen and (min-width: 872px){
+            #metrics {
+
+            }
+
+            .five-unit {
+                width: 150px;
+            }
         }
 
         /*@media screen and(min-width: 476px){*/
