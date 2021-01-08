@@ -179,7 +179,7 @@ const makefiveDayDisplay = (dayTime, loc) => {
     // let iconImage = `<img src=${iconUrl} width="50" height="50">`
 
 
-    chunk.setAttribute('class', 'card five-unit m-2')
+    chunk.setAttribute('class', 'card five-unit')
 
     dateDisplay.innerText = date.replace('21:00:00', '')
     // + ' - ' + date.getMonth()

@@ -8,6 +8,8 @@
         :root {
             --light-blue: #33ccff;
             --dark-blue: #668cff;
+
+            --metric: #37718E;
         }
         .head {
             display: flex;
@@ -28,7 +30,8 @@
 
             justify-content: space-around;
             padding: 20px;
-            margin: 0 auto;
+            margin: 0 auto 80px;
+            background: var(--metric);
         }
 
         .card {
@@ -42,6 +45,7 @@
 
         .five-unit {
             width: 250px;
+            margin: 10px;
         }
 
         .curr-disp {
@@ -64,19 +68,40 @@
             text-align: center;
             background: var(--light-blue);
         }
-        @media screen and (min-width: 768px){
-            #metrics {
+        /*@media screen and (min-width: 768px){*/
+        /*    #metrics {*/
 
-            }
-        }
+        /*    }*/
+        /*}*/
 
         @media screen and (min-width: 872px){
             #metrics {
 
             }
 
+            /*.five-unit {*/
+            /*    width: 150px;*/
+            /*}*/
+        }
+
+        @media screen and (min-width: 937px){
+            #metrics {
+
+            }
+
             .five-unit {
                 width: 150px;
+                /*max-width: 250px;*/
+            }
+        }
+
+        @media screen and (min-width: 1135px){
+            #metrics {
+
+            }
+
+            .five-unit {
+                width: 200px;
             }
         }
 
