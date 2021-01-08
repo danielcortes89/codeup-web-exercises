@@ -30,7 +30,10 @@ const getCurrent = (coords) => {
     })
 }
 
+
+
 // FORECAST
+
 const getFiveDay = (coords) => {
     // $.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
     //     appid: OPEN_WEATHER_APPID,
@@ -70,8 +73,9 @@ const getFiveDay = (coords) => {
     })
 }
 
-
-
+// `http://api.openweathermap.org/data/2.5/forecast?lat=${-98.598606}&lon${29.609374}`
+// [-98.598606, 29.609374]
+// q:  "San Antonio, Texas",
 
 const makeCurrentDisplay = (data) => {
     let wind = data.wind.speed
@@ -218,7 +222,6 @@ const makefiveDayDisplay = (dayTime, loc) => {
     }
 }
 
-
 getCurrent(start)
 getFiveDay(start)
 
@@ -227,7 +230,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [-98.598606, 29.609374],
-    zoom: 9
+    zoom: 11
 });
 
 var marker = new mapboxgl.Marker({
@@ -236,15 +239,19 @@ var marker = new mapboxgl.Marker({
     .setLngLat([-98.598606, 29.609374])
     .addTo(map);
 
-const getDataFromMarker = () => {
+
+const test = () => {
     let markerCoord = marker.getLngLat()
+
+
     console.log('move', markerCoord)
 
     getFiveDay(markerCoord)
     getCurrent(markerCoord)
+
 }
 
-marker.on('dragend', getDataFromMarker())
+marker.on('dragend', test)
 
 
 const inputField = document.getElementById('userSearch')
@@ -252,7 +259,7 @@ const inputField = document.getElementById('userSearch')
 let takeUser = () => {
     console.log(inputField.value)
     geocode(inputField.value, mapboxToken).then((result) => {
-
+        // getFiveDay(result)
         let lng = result[0]
         let lat = result[1]
 
@@ -265,7 +272,7 @@ let takeUser = () => {
 
         marker.setLngLat([lng, lat]).addTo(map)
 
-        getDataFromMarker()
+        test()
     })
 }
 
