@@ -1,5 +1,5 @@
 mapboxgl.accessToken = mapboxToken;
-// let searchTerm = "San Antonio, Texas"
+
 let start = {
     lng: -98.598606,
     lat: 29.609374
@@ -11,55 +11,29 @@ let start = {
 const getCurrent = (coords) => {
     $.get(`http://api.openweathermap.org/data/2.5/weather`, {
         APPID: OPEN_WEATHER_APPID,
-        // q:     "San Antonio, US",
         lat: coords.lat,
         lon: coords.lng,
         units: 'imperial'
     }).done((data) => {
-        console.log(data);
-
-        // document.getElementById('currentCity').innerText = 'Current Location: ' + data.name
+        // console.log(data);
 
         makeCurrentDisplay(data)
-
-        let iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-
-        let iconImage = `<img src=${iconUrl} width="50" height="50">`
-
-        // $('body').append(iconImage)
     })
 }
 
 
 
 // FORECAST
-
 const getFiveDay = (coords) => {
-    // $.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
-    //     appid: OPEN_WEATHER_APPID,
-    //     q:  "San Antonio, Texas",
-    //     cnt: '5'
-    // }).done((data) => {
-    //     console.log('FORECAST 5 DAY')
-    //     console.log(data)
-    // })
     let metrics = $('#metrics')
 
-    // while(metrics.hasChildNodes()){
-    //     metrics.removeChild(metrics.firstChild)
-    //
-    // }
     metrics.html('')
 
     $.get(`http://api.openweathermap.org/data/2.5/forecast`, {
         // method: 'GET',
         appid: OPEN_WEATHER_APPID,
-        // q:  "San Antonio, Texas",
-        // lat: 29.609374,
-        // lon: -98.598606,
         lat: coords.lat,
         lon: coords.lng,
-        // lon: '',
         units: 'imperial'
     }).done((data) => {
         console.log('FORECAST 5 DAY')
@@ -69,13 +43,8 @@ const getFiveDay = (coords) => {
                 makefiveDayDisplay(data.list[i], data.city.name)
             }
         }
-        // console.log(makefiveDayDisplay(data.list[0]))
     })
 }
-
-// `http://api.openweathermap.org/data/2.5/forecast?lat=${-98.598606}&lon${29.609374}`
-// [-98.598606, 29.609374]
-// q:  "San Antonio, Texas",
 
 const makeCurrentDisplay = (data) => {
     let wind = data.wind.speed
@@ -158,11 +127,8 @@ const makeCurrentDisplay = (data) => {
 }
 
 const makefiveDayDisplay = (dayTime, loc) => {
-    // document.getElementById('currentCity').innerText = 'Current Location: ' + loc
     // EXTRACT DATA
     let date = dayTime.dt_txt
-    // let date = new Date(da)
-    // console.log(date)
     let { main, weather, wind } = dayTime
     let { humidity, pressure } = main
     let temperature = main.temp
@@ -240,9 +206,7 @@ const makefiveDayDisplay = (dayTime, loc) => {
         return weekday + message + prep.replace('2021-01-', '')
     }
 
-    makeDateString(dayTime)
-    //
-    // date = makeDateString()
+    // makeDateString(dayTime)
 
     // HTML
     const chunk = document.createElement('div')
@@ -255,14 +219,9 @@ const makefiveDayDisplay = (dayTime, loc) => {
     const humidDisplay = document.createElement('p')
     const windDisplay = document.createElement('p')
 
-    // let iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-    // let iconImage = `<img src=${iconUrl} width="50" height="50">`
-
-
     chunk.setAttribute('class', 'card five-unit m-2')
 
     dateDisplay.innerText = makeDateString(dayTime)
-    // + ' - ' + date.getMonth()
     dateDisplay.setAttribute('class', 'card-header')
 
     cardBody.setAttribute('class', 'card-body back')
@@ -286,16 +245,6 @@ const makefiveDayDisplay = (dayTime, loc) => {
     chunk.appendChild(cardBody)
 
     $('#metrics').append(chunk)
-
-    return {
-        date,
-        speed,
-        icon,
-        description,
-        temperature,
-        humidity,
-        pressure
-    }
 }
 
 getCurrent(start)
@@ -318,13 +267,10 @@ var marker = new mapboxgl.Marker({
 
 const test = () => {
     let markerCoord = marker.getLngLat()
-
-
-    console.log('move', markerCoord)
+    // console.log('move', markerCoord)
 
     getFiveDay(markerCoord)
     getCurrent(markerCoord)
-
 }
 
 marker.on('dragend', test)
@@ -335,7 +281,6 @@ const inputField = document.getElementById('userSearch')
 let takeUser = () => {
     console.log(inputField.value)
     geocode(inputField.value, mapboxToken).then((result) => {
-        // getFiveDay(result)
         let lng = result[0]
         let lat = result[1]
 
