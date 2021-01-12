@@ -36,8 +36,8 @@ const getFiveDay = (coords) => {
         lon: coords.lng,
         units: 'imperial'
     }).done((data) => {
-        console.log('FORECAST 5 DAY')
-        console.log(data)
+        // console.log('FORECAST 5 DAY')
+        // console.log(data)
         for(let i = 0; i < 40; i++){
             if(data.list[i].dt_txt.includes('21:00:00')){
                 makefiveDayDisplay(data.list[i], data.city.name)
@@ -52,7 +52,7 @@ const makeCurrentDisplay = (data) => {
     let { sunrise, sunset } = data.sys
     let { temp, humidity, feels_like } = data.main
 
-    console.log(sunrise)
+    // console.log(sunrise)
     sunrise = new Date(sunrise * 1000)
     sunset = new Date(sunset * 1000)
 
