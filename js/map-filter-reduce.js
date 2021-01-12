@@ -46,17 +46,25 @@ let totalAge = users.reduce((acc, user) => {
     return acc + user.yearsOfExperience
 }, 0)
 
-// let longestEmail = users.reduce((acc, user) => {
-//     // let hold = acc.toString().length
-//     if(acc.keys() === 0){
-//         return acc = user.email
-//     } else {
-//         return acc
-//     }
-//     // return acc
-//     // return user.email.length + acc
-//     // return acc.toString().length
-// }, {})
+let longestEmail = users.reduce((acc, user) => {
+    // let hold = acc.toString().length
+
+    // if(acc.keys() === 0){
+    //     return acc = user.email
+    // } else {
+    //     return acc
+    // }
+
+    if(typeof acc[user.email] === 'undefined'){
+        acc = { value: user.email }
+    }
+    if(acc.value.length > user.email.length){
+        acc.value = user.email
+    }
+    // return acc
+    // return user.email.length + acc
+    // return acc.toString().length
+}, {})
 
 const over = () => {
     let model = 'g'
@@ -76,4 +84,18 @@ const names = users.reduce((acc, user) => {
     return acc = acc + user.name + ', '
 }, 'The list of instructors are: ')
 
-console.log(names);
+
+
+
+
+// const bonus = users.reduce((acc, user) => {
+//     let fill = user.languages.filter((item ) => {
+//         return !acc.includes(item)
+//     })
+//     // fill.forEach((item) => acc.push(item))
+// }, [])
+
+
+
+
+console.log(longestEmail);
