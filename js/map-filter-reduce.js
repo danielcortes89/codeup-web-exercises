@@ -42,4 +42,38 @@ let threeLanguages = users.filter(user => {
 
 let emails = users.map(user => user.email)
 
-console.log(emails);
+let totalAge = users.reduce((acc, user) => {
+    return acc + user.yearsOfExperience
+}, 0)
+
+// let longestEmail = users.reduce((acc, user) => {
+//     // let hold = acc.toString().length
+//     if(acc.keys() === 0){
+//         return acc = user.email
+//     } else {
+//         return acc
+//     }
+//     // return acc
+//     // return user.email.length + acc
+//     // return acc.toString().length
+// }, {})
+
+const over = () => {
+    let model = 'g'
+    return users.reduce((acc, user) => {
+        if(user.email.length > model.length){
+            return acc = user.email
+        }
+    }, model)
+
+}
+
+const names = users.reduce((acc, user) => {
+    // console.log(users.length)
+    if(user.id === users.length){
+        return acc = acc + user.name + '.'
+    }
+    return acc = acc + user.name + ', '
+}, 'The list of instructors are: ')
+
+console.log(names);
