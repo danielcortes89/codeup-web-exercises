@@ -46,25 +46,42 @@ let totalAge = users.reduce((acc, user) => {
     return acc + user.yearsOfExperience
 }, 0)
 
-let longestEmail = users.reduce((acc, user) => {
-    // let hold = acc.toString().length
+let longestEmail = (arr, prop) => {
+    return arr.reduce((acc, user) => {
 
-    // if(acc.keys() === 0){
-    //     return acc = user.email
-    // } else {
-    //     return acc
-    // }
+        let key = user[prop]
+        let hold = prop
+        console.log(key);
+        // return key
 
-    if(typeof acc[user.email] === 'undefined'){
-        acc = { value: user.email }
-    }
-    if(acc.value.length > user.email.length){
-        acc.value = user.email
-    }
-    // return acc
-    // return user.email.length + acc
-    // return acc.toString().length
-}, {})
+        console.log(acc)
+        if(!acc[prop]){
+            acc[hold] = key
+        }
+
+        console.log(acc[hold].length);
+        // user.email.length
+
+        if(acc[hold].length < user.email.length){
+            acc[hold] = user.email
+        }
+
+        return acc
+        // if(acc[key].length > user[key].length){
+        //     return acc[key] = user[key]
+        // }
+
+
+
+        // if (typeof acc[user.email] === 'undefined') {
+        //     acc = {value: user.email}
+        // }
+        // if (acc.value.length > user.email.length) {
+        //     acc.value = user.email
+        // }
+
+    }, {})
+}
 
 const over = () => {
     let model = 'g'
@@ -98,4 +115,4 @@ const names = users.reduce((acc, user) => {
 
 
 
-console.log(longestEmail);
+console.log(longestEmail(users, 'email').email);
