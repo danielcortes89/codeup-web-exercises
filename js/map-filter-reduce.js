@@ -67,31 +67,9 @@ let longestEmail = (arr, prop) => {
         }
 
         return acc
-        // if(acc[key].length > user[key].length){
-        //     return acc[key] = user[key]
-        // }
-
-
-
-        // if (typeof acc[user.email] === 'undefined') {
-        //     acc = {value: user.email}
-        // }
-        // if (acc.value.length > user.email.length) {
-        //     acc.value = user.email
-        // }
-
     }, {})
 }
 
-const over = () => {
-    let model = 'g'
-    return users.reduce((acc, user) => {
-        if(user.email.length > model.length){
-            return acc = user.email
-        }
-    }, model)
-
-}
 
 const names = users.reduce((acc, user) => {
     // console.log(users.length)

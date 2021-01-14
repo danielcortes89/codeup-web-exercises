@@ -1,11 +1,15 @@
 const searchUser = (username) => {
-    fetch(`https://api.github.com/users/${username}`, {
+    fetch(`https://api.github.com/users/${username}/events/public`, {
     headers: {
         'Authorization': `${githubAPI}`
      }
     })
         .then(data => {
-            console.log(data);
+            return data.json()
+            // console.log(data);
+        })
+        .then(data => {
+            console.log(data[0]);
         })
 }
 
@@ -21,3 +25,4 @@ const wait = (num) => {
 }
 
 wait(1000).then(resolve => console.log(resolve))
+wait(3000).then(resolve => console.log(resolve))
